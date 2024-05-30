@@ -27,33 +27,33 @@ Por meio dessa abordagem, buscamos não apenas fornecer uma solução econômica
 ## Linux (Based on Arch-Linux)
 - Primeiro temos que instalar o ESP-IDF no seu sistema.
 ```bash
-$  git clone --recursive https://github.com/espressif/esp-idf.git
+git clone --recursive https://github.com/espressif/esp-idf.git
 ```
 Isso vai clonar o repositorio da esp-idf e todos seus intra repositorios, que são os módulos basicamente.
 
 
 - Após isso você vai escrever:
 ```bash
-$  cd esp-idf/
+cd esp-idf/
 ```
 ```bash
-$  ./install.sh
+./install.sh
 ```
 ```bash
-$  . ./export.sh
+. ./export.sh
 ```
 ```bash
-$  git clone https://github.com/ArthurFabris/esp32-wifi-controller.git
+git clone https://github.com/ArthurFabris/esp32-wifi-controller.git
 ```
 ```bash
-$  idf.py create-project NOME_DO_PROJETO\
+idf.py create-project NOME_DO_PROJETO\
 ```
 ```bash
-$  cp /caminho/absoluto/para/esp32-wifi-controller/src/ /caminho/absoluto/para/NOME_DO_PROJETO
+cp /caminho/absoluto/para/esp32-wifi-controller/src/ /caminho/absoluto/para/NOME_DO_PROJETO
 ```
 - Após isso é só conectar o ESP-32 com um cabo USB no seu computador e executar o seguinte comando:
 ```bash
-$  idf.py build flash monitor
+idf.py build flash monitor
 ```
 Isso vai compilar, gravar e monitorar o seu codigo.\
     \
