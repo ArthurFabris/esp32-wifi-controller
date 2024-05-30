@@ -77,8 +77,18 @@ Se tudo der certo você verá a seguinte imagem:\
 Agora é só controlar o robô e ajustar o codigo para a sua preferencia.
 
 ## Windows 10 e 11
+- Baixe o git usando o seguinte link:
+[Git](https://git-scm.com/download/win)\
+![image](https://github.com/ArthurFabris/esp32-wifi-controller/assets/151470840/ca6c9119-d2c0-4e38-80dd-d91cbb7768ec)\
+- Clique next até concluir, instale o git padrão.
+- Apos isso aperte win + q e digite "git"
+- Abra o "Git CMD"
+- Digite:
+```cmd
+git clone --recursive https://github.com/espressif/esp-idf.git
+```  
 
-Ainda a ser implementado, pretendo fazer em uma VM e testar, e tambem em um computador do proprio IFES.
+
 ## MAC-OS
 Só vai ser implementado se alguma pessoa conseguir compilar o codigo e gravar no esp32, não tenho acesso a produtos apple e n quero fzr um hackintosh.
 
