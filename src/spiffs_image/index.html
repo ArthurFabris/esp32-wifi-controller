@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .button-container {
+            display: grid;
+            grid-template-areas:
+                ". up ."
+                "left down right"
+                ". . .";
+            gap: 10px;
+        }
+        .button-container button {
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+        }
+        #buttonUp {
+            grid-area: up;
+        }
+        #buttonLeft {
+            grid-area: left;
+        }
+        #buttonDown {
+            grid-area: down;
+        }
+        #buttonRight {
+            grid-area: right;
+        }
+        .pressed {
+            background-color: red !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Controle ESP-32</h1> <!-- Coloque o nome do seu controle dentro desse <h1>. EX: <h1>NOME DO CONTROLE"</h1>-->
+    <div class="button-container">
+        <button type="button" id="buttonUp" ontouchstart="buttonPress('up')" ontouchend="buttonRelease('up')" onclick="buttonClick('up')">W</button>
+        <button type="button" id="buttonLeft" ontouchstart="buttonPress('left')" ontouchend="buttonRelease('left')" onclick="buttonClick('left')">A</button>
+        <button type="button" id="buttonDown" ontouchstart="buttonPress('down')" ontouchend="buttonRelease('down')" onclick="buttonClick('down')">S</button>
+        <button type="button" id="buttonRight" ontouchstart="buttonPress('right')" ontouchend="buttonRelease('right')" onclick="buttonClick('right')">D</button>
+    </div>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowUp' || event.key === 'w') buttonPress('up');
+            if (event.key === 'ArrowLeft' || event.key === 'a') buttonPress('left');
+            if (event.key === 'ArrowDown' || event.key === 's') buttonPress('down');
+            if (event.key === 'ArrowRight' || event.key === 'd') buttonPress('right');
+        });
+
+        document.addEventListener('keyup', function(event) {
+            if (event.key === 'ArrowUp' || event.key === 'w') buttonRelease('up');
+            if (event.key === 'ArrowLeft' || event.key === 'a') buttonRelease('left');
+            if (event.key === 'ArrowDown' || event.key === 's') buttonRelease('down');
+            if (event.key === 'ArrowRight' || event.key === 'd') buttonRelease('right');
+        });
+
+        function buttonPress(direction) {
+            var button = document.getElementById('button' + capitalize(direction));
+            button.classList.add('pressed');
+            fetch('/button' + direction + '?state=pressed');
+        }
+
+        function buttonRelease(direction) {
+            var button = document.getElementById('button' + capitalize(direction));
+            button.classList.remove('pressed');
+            fetch('/button' + direction + '?state=released');
+        }
+
+        function buttonClick(direction) {
+            buttonPress(direction);
+            setTimeout(function() {
+                buttonRelease(direction);
+            }, 200); // Adjust the delay if necessary
+        }
+
+        function capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    </script>
+</body>
+</html>
