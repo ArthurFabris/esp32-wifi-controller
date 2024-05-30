@@ -61,7 +61,7 @@ pyenv install 3.12.3
 pyenv install 3.12.3
 ```
 ```bash
-pyenv global 3.12.0
+pyenv global 3.12.3
 ```
 ### Ubuntu
 - Primeiro temos que instalar o git.
@@ -88,7 +88,7 @@ pyenv install 3.12.3
 pyenv install 3.12.3
 ```
 ```bash
-pyenv global 3.12.0
+pyenv global 3.12.3
 ```
 ## Agora temos que instalar o ESP-IDF no seu sistema.
 Como as ferramentas usadas a partir de agora devem ser as mesmas, o tutorial se torna universal para as Distros de Linux.
