@@ -4,6 +4,7 @@
 ![Windows Compatibility](https://img.shields.io/badge/Windows-10-blue)
 ![Linux Compatibility](https://img.shields.io/badge/Linux-Compatible-blue)
 ![Arch Linux Compatibility](https://img.shields.io/badge/Arch-Linux-blue)
+![ESP-IDF](https://img.shields.io/badge/ESP--IDF-v5.4-red)
 
 
 
