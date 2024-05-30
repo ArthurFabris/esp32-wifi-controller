@@ -12,6 +12,13 @@ Controle universal para robôs com 2 motores de movimento utilizando esp-32.
 - O controle pode ser qualquer dispositivo que consiga usar um navegador.
 - Os unicos navegadores testados são [Safari](https://pt.wikipedia.org/wiki/Safari_(navegador)) e [Firefox](https://pt.wikipedia.org/wiki/Mozilla_Firefox). Safari no Iphone7 e Firefox no Arch Linux
 
+### Vantagens desse controle sobre o arduino + radio
+- Multiplos controles simultaneos\
+  Isso torna possivel mais de um piloto, desbloqueando novas estrategias de combate.
+- Menor custo
+- Mais customizavel
+- Mais simples
+
 
 
 O objetivo deste controle é reduzir os custos associados à montagem do robô de batalha do IFES. Destinado ao modelo básico do robô, ele serve como uma plataforma inicial que pode ser facilmente adaptada às necessidades do usuário. Com ênfase na legibilidade e na abstração das rotinas de nível mais baixo, o código fornecido acima deve ser considerado como um ponto de partida, onde apenas a identificação precisa ser configurada. Além disso, é facilmente extensível para aqueles que desejam um controle mais avançado e com mais funcionalidades.
