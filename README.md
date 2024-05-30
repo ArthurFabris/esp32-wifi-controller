@@ -116,7 +116,11 @@ idf.py create-project NOME_DO_PROJETO\
 ```bash
 cp /caminho/absoluto/para/esp32-wifi-controller/src/ /caminho/absoluto/para/NOME_DO_PROJETO
 ```
+- !!! Edite o CMakeLists.txt e coloque o nome do seu projeto. !!!
 - Após isso é só conectar o ESP-32 com um cabo USB no seu computador e executar o seguinte comando:
+```bash
+idf.py fullclean
+```
 ```bash
 idf.py build flash monitor
 ```
