@@ -12,7 +12,7 @@
 Controle universal para robôs com 2 motores de movimento utilizando esp-32.
 ### TO-DO LIST
 
-- [ ] Adicionar botão da arma e inversão de eixos.
+- [x] Adicionar botão da arma e inversão de eixos. (Tópico será removido após 7d)
 - [x] Exemplificar a construção do e flash do programa em Windows. (Tópico será removido após 7d).
 - [ ] Fazer script de instalação automatica para Linux.
 - [ ] Fazer script de instalação automatica para Windows.
