@@ -188,35 +188,12 @@ Só vai ser implementado se alguma pessoa conseguir compilar o codigo e gravar n
 
 # Se tudo funcionar você vera que uma rede wifi foi criada com o nome que você escolheu.
      
-- Para se conectar com o robô basta se conectar na rede wifi criada e após isso digitar:
+- Para se conectar com o robô basta se conectar na rede wifi criada e após isso se digitar no navegador:
 ```https
 192.168.4.1
 ```
-Que é o link do servidor https criado pelo robô.\
-     \
-Se tudo der certo você verá a seguinte imagem:\
-![image](https://github.com/ArthurFabris/esp32-wifi-controller/assets/151470840/3f1b1b04-6652-48c8-a08b-711ca6f2b39b)\
-Agora é só controlar o robô e ajustar o codigo para a sua preferencia.
-# Layout do circuito de exemplo
-![image](https://github.com/ArthurFabris/esp32-wifi-controller/assets/151470840/89d3eb06-5239-4170-8c45-9ee7d7d4631f)
-![image](https://github.com/ArthurFabris/esp32-wifi-controller/assets/151470840/6ba34507-cb7c-47d8-b261-81af830b1d0e)
+Que é o link do servidor https criado pelo robô.
 
-
-- d4=Verde.
-- d5=Ciano.
-- d18=Azul.
-- d19=Roxo.
-- d23=Amarelo.
-- d22=Laranja.
-
-
-O valor do resistor é para ser definido de acordo com a voltagem selecionada.
-
-
-### Por exemplo:
-Para esse circuito, podemos utilizar 5v ou 3.3v e eu estou usando leds de alto brilho.
-![image](https://github.com/ArthurFabris/esp32-wifi-controller/assets/151470840/c975ba1e-3430-417e-9940-dbc6fdb8cf70)\
-Estes valores representam os cálculos para 5V e 3.3V, juntamente com as fórmulas para que você possa calcular por conta própria.
 
 Se surgirem dúvidas ou sugestões, não hesite em entrar em contato através do email: arthurfabris001@gmail.com, deixar um comentário na página do GitHub ou fazer um commit!
 
