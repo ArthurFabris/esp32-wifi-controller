@@ -1,6 +1,6 @@
 # Controle Universal 2 motores ESP-32 v1.0.
-![Python](https://img.shields.io/badge/Python-3.12.3%2B-blue)
-![Git](https://img.shields.io/badge/Git-2.45.1-blue)
+![Python](https://img.shields.io/badge/Python-3.12.3%2B-green)
+![Git](https://img.shields.io/badge/Git-2.45.1-green)
 ![Windows Compatibility](https://img.shields.io/badge/Windows-10-blue)
 ![Linux Compatibility](https://img.shields.io/badge/Linux-Compatible-blue)
 ![Arch Linux Compatibility](https://img.shields.io/badge/Arch-Linux-blue)
