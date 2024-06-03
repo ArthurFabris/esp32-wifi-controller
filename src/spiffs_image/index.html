@@ -16,7 +16,8 @@
             grid-template-areas:
                 ". up ."
                 "left down right"
-                ". . .";
+                ". . ."
+                "weapon reverse .";
             gap: 10px;
         }
         .button-container button {
@@ -36,6 +37,12 @@
         #buttonRight {
             grid-area: right;
         }
+        #buttonWeapon {
+            grid-area: weapon;
+        }
+        #buttonReverse {
+            grid-area: reverse;
+        }
         .pressed {
             background-color: red !important;
         }
@@ -48,6 +55,8 @@
         <button type="button" id="buttonLeft" ontouchstart="buttonPress('left')" ontouchend="buttonRelease('left')" onclick="buttonClick('left')">A</button>
         <button type="button" id="buttonDown" ontouchstart="buttonPress('down')" ontouchend="buttonRelease('down')" onclick="buttonClick('down')">S</button>
         <button type="button" id="buttonRight" ontouchstart="buttonPress('right')" ontouchend="buttonRelease('right')" onclick="buttonClick('right')">D</button>
+        <button type="button" id="buttonWeapon" ontouchstart="buttonToggle('weapon')" ontouchend="buttonToggle('weapon')" onclick="buttonToggle('weapon')">Weapon</button>
+        <button type="button" id="buttonReverse" ontouchstart="buttonToggle('reverse')" ontouchend="buttonToggle('reverse')" onclick="buttonToggle('reverse')">Reverse</button>
     </div>
     <script>
         document.addEventListener('keydown', function(event) {
@@ -55,6 +64,8 @@
             if (event.key === 'ArrowLeft' || event.key === 'a') buttonPress('left');
             if (event.key === 'ArrowDown' || event.key === 's') buttonPress('down');
             if (event.key === 'ArrowRight' || event.key === 'd') buttonPress('right');
+            if (event.key === 'q') buttonPress('reverse'); // Map 'q' key to reverse button
+            if (event.key === 'e') buttonPress('weapon'); // Map 'e' key to weapon button
         });
 
         document.addEventListener('keyup', function(event) {
@@ -62,6 +73,8 @@
             if (event.key === 'ArrowLeft' || event.key === 'a') buttonRelease('left');
             if (event.key === 'ArrowDown' || event.key === 's') buttonRelease('down');
             if (event.key === 'ArrowRight' || event.key === 'd') buttonRelease('right');
+            if (event.key === 'q') buttonRelease('reverse'); // Map 'q' key to reverse button
+            if (event.key === 'e') buttonRelease('weapon'); // Map 'e' key to weapon button
         });
 
         function buttonPress(direction) {
@@ -81,6 +94,18 @@
             setTimeout(function() {
                 buttonRelease(direction);
             }, 200); // Adjust the delay if necessary
+        }
+
+        function buttonToggle(direction) {
+            var button = document.getElementById('button' + capitalize(direction));
+            var isPressed = button.classList.contains('pressed');
+            if (isPressed) {
+                button.classList.remove('pressed');
+                fetch('/button' + direction + '?state=released');
+            } else {
+                button.classList.add('pressed');
+                fetch('/button' + direction + '?state=pressed');
+            }
         }
 
         function capitalize(string) {

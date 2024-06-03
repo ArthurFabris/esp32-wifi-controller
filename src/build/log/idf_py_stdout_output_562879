@@ -1,0 +1,461 @@
+V�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:7176
+load:0x40078000,len:15576
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (29) boot: ESP-IDF v5.4-dev-78-gd4cd437ede-dirty 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time May 29 2024 10:36:01[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 80MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00090000 00008000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 00098000 00100000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00200000 00100000[0m
+[0;32mI (92) boot:  3 storage          Unknown data     01 82 00300000 00080000[0m
+[0;32mI (99) boot: End of partition table[0m
+[0;32mI (103) esp_image: segment 0: paddr=00200020 vaddr=3f400020 size=25220h (152096) map[0m
+[0;32mI (155) esp_image: segment 1: paddr=00225248 vaddr=3ffb0000 size=03d94h ( 15764) load[0m
+[0;32mI (160) esp_image: segment 2: paddr=00228fe4 vaddr=40080000 size=07034h ( 28724) load[0m
+[0;32mI (170) esp_image: segment 3: paddr=00230020 vaddr=400d0020 size=922dch (598748) map[0m
+[0;32mI (340) esp_image: segment 4: paddr=002c2304 vaddr=40087034 size=0f6e0h ( 63200) load[0m
+[0;32mI (372) boot: Loaded app from partition at offset 0x200000[0m
+[0;32mI (373) boot: Disabling RNG early entropy source...[0m
+[0;32mI (384) cpu_start: Multicore app[0m
+[0;32mI (393) cpu_start: Pro cpu start user code[0m
+[0;32mI (393) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (393) app_init: Application information:[0m
+[0;32mI (396) app_init: Project name:     controle_robo_esp32[0m
+[0;32mI (402) app_init: App version:      v5.4-dev-78-gd4cd437ede-dirty[0m
+[0;32mI (408) app_init: Compile time:     May 29 2024 10:35:53[0m
+[0;32mI (414) app_init: ELF file SHA256:  54fea9923...[0m
+[0;32mI (420) app_init: ESP-IDF:          v5.4-dev-78-gd4cd437ede-dirty[0m
+[0;32mI (426) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (431) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (436) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (441) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (448) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (454) heap_init: At 3FFB8000 len 00028000 (160 KiB): DRAM[0m
+[0;32mI (460) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (467) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (473) heap_init: At 40096714 len 000098EC (38 KiB): IRAM[0m
+[0;32mI (480) spi_flash: detected chip: generic[0m
+[0;32mI (484) spi_flash: flash io: dio[0m
+[0;32mI (489) main_task: Started on CPU0[0m
+[0;32mI (499) main_task: Calling app_main()[0m
+[0;32mI (529) Controle: Tamanho da particao: total: 474641, usado: 4267[0m
+[0;32mI (529) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (539) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (539) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (549) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (559) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (569) gpio: GPIO[23]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (579) gpio: GPIO[22]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+I (599) wifi:wifi driver task: 3ffc09fc, prio:23, stack:6656, core=0
+I (599) wifi:wifi firmware version: ef2fedc
+I (599) wifi:wifi certification version: v7.0
+I (599) wifi:config NVS flash: enabled
+I (609) wifi:config nano formating: disabled
+I (609) wifi:Init data frame dynamic rx buffer num: 32
+I (619) wifi:Init static rx mgmt buffer num: 5
+I (619) wifi:Init management short buffer num: 32
+I (629) wifi:Init dynamic tx buffer num: 32
+I (629) wifi:Init static rx buffer size: 1600
+I (629) wifi:Init static rx buffer num: 10
+I (639) wifi:Init dynamic rx buffer num: 32
+[0;32mI (639) wifi_init: rx ba win: 6[0m
+[0;32mI (649) wifi_init: accept mbox: 6[0m
+[0;32mI (649) wifi_init: tcpip mbox: 32[0m
+[0;32mI (649) wifi_init: udp mbox: 6[0m
+[0;32mI (659) wifi_init: tcp mbox: 6[0m
+[0;32mI (659) wifi_init: tcp tx win: 5760[0m
+[0;32mI (659) wifi_init: tcp rx win: 5760[0m
+[0;32mI (669) wifi_init: tcp mss: 1440[0m
+[0;32mI (669) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (679) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (689) phy_init: phy_version 4791,2c4672b,Dec 20 2023,16:06:06[0m
+I (749) wifi:mode : softAP (a0:b7:65:58:49:71)
+I (749) wifi:Total power save buffer number: 16
+I (749) wifi:Init max length of beacon: 752/752
+I (749) wifi:Init max length of beacon: 752/752
+[0;32mI (759) Controle: Rede wifi Funcionando: SSID:Controle password:123456789[0m
+[0;32mI (759) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (779) main_task: Returned from app_main()[0m
+I (143999) wifi:new:<1,1>, old:<1,1>, ap:<1,1>, sta:<255,255>, p4of::23:87:76:bf:f2 join, AID=1, bgn, 40U
+[0;32mI (144029) Controle: Estacao conectou[0m
+I (144259) wifi:<ba-add>idx:2 (ifx:1, 34:23:87:76:bf:f2), tid:0, ssn:0, winSize:64
+[0;32mI (144339) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+I (157369) wifi:station: 34:23:87:76:bf:f2 leave, AID = 1, bss_feagsw:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1, snd_ch_cfg:0x0
+I (157369) wifi:<ba-del>idx:2, tid:0
+[0;32mI (157379) Controle: Estacao desconectou[0m
+I (192159) wifi:new:<1,1>, old:<1,0>, ap:<1,1>, sta:<255,255>, p4of::23:87:76:bf:f2 join, AID=1, bgn, 40U
+[0;32mI (192169) Controle: Estacao conectou[0m
+I (192289) wifi:<ba-add>idx:2 (ifx:1, 34:23:87:76:bf:f2), tid:0, ssn:0, winSize:64
+[0;32mI (192289) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;33mW (204539) httpd_uri: httpd_uri: URI '/favicon.ico' not fpund_send_err: 404 Not Found - Nothing matches the given URI[0m
+[0;32mI (206449) Controle: Reverse button pressed[0m
+[0;32mI (207689) Controle: Reverse button pressed[0m
+[0;32mI (207919) Controle: Reverse button pressed[0m
+[0;32mI (209619) Controle: Up button pressed[0m
+[0;32mI (209619) Controle: Up button released[0m
+[0;32mI (210479) Controle: Reverse button pressed[0m
+[0;32mI (210599) Controle: Up button pressed[0m
+[0;32mI (211089) Controle: Up button released[0m
+[0;32mI (211929) Controle: Up button pressed[0m
+[0;32mI (212079) Controle: Up button released[0m
+[0;32mI (212949) Controle: Weapon button pressed[0m
+[0;32mI (213509) Controle: Reverse button pressed[0m
+[0;32mI (213879) Controle: Up button pressed[0m
+[0;32mI (214139) Controle: Up button released[0m
+[0;32mI (214779) Controle: Up button pressed[0m
+[0;32mI (214999) Controle: Up button released[0m
+[0;32mI (215029) Controle: Up button pressed[0m
+[0;32mI (215129) Controle: Up button released[0m
+[0;32mI (215199) Controle: Up button pressed[0m
+[0;32mI (215389) Controle: Up button released[0m
+[0;32mI (215629) Controle: Left button pressed[0m
+[0;32mI (215779) Controle: Left button released[0m
+[0;32mI (215859) Controle: Right button pressed[0m
+[0;32mI (216059) Controle: Right button released[0m
+[0;32mI (216129) Controle: Left button pressed[0m
+[0;32mI (216339) Controle: Left button released[0m
+[0;32mI (216589) Controle: Right button pressed[0m
+[0;32mI (216699) Controle: Right button released[0m
+[0;32mI (216919) Controle: Right button pressed[0m
+[0;32mI (217029) Controle: Right button released[0m
+[0;32mI (217199) Controle: Right button pressed[0m
+[0;32mI (217309) Controle: Right button released[0m
+[0;32mI (217619) Controle: Left button pressed[0m
+[0;32mI (217749) Controle: Left button released[0m
+[0;32mI (217819) Controle: Left button pressed[0m
+[0;32mI (217999) Controle: Left button released[0m
+[0;32mI (218089) Controle: Left button pressed[0m
+[0;32mI (218209) Controle: Left button released[0m
+[0;32mI (218289) Controle: Left button pressed[0m
+[0;32mI (218469) Controle: Left button released[0m
+[0;32mI (218529) Controle: Left button pressed[0m
+[0;32mI (218629) Controle: Left button released[0m
+[0;32mI (218719) Controle: Left button pressed[0m
+[0;32mI (218829) Controle: Left button released[0m
+[0;32mI (220149) Controle: Reverse button pressed[0m
+[0;32mI (220899) Controle: Left button pressed[0m
+[0;32mI (221029) Controle: Left button released[0m
+[0;32mI (221299) Controle: Left button pressed[0m
+[0;32mI (221469) Controle: Left button released[0m
+[0;32mI (221639) Controle: Left button pressed[0m
+[0;32mI (221829) Controle: Left button released[0m
+[0;32mI (221859) Controle: Left button pressed[0m
+[0;32mI (221969) Controle: Left button released[0m
+[0;32mI (222039) Controle: Left button pressed[0m
+[0;32mI (222139) Controle: Left button released[0m
+[0;32mI (222189) Controle: Left button pressed[0m
+[0;32mI (222299) Controle: Left button released[0m
+[0;32mI (222349) Controle: Left button pressed[0m
+[0;32mI (222459) Controle: Left button released[0m
+[0;32mI (222539) Controle: Left button pressed[0m
+[0;32mI (222649) Controle: Left button released[0m
+[0;32mI (226069) Controle: Left button pressed[0m
+[0;32mI (226219) Controle: Left button released[0m
+[0;32mI (226349) Controle: Right button pressed[0m
+[0;32mI (226509) Controle: Right button released[0m
+[0;32mI (226639) Controle: Left button pressed[0m
+[0;32mI (226789) Controle: Left button released[0m
+[0;32mI (226939) Controle: Up button pressed[0m
+[0;32mI (227059) Controle: Up button released[0m
+[0;32mI (227189) Controle: Up button pressed[0m
+[0;32mI (227289) Controle: Up button released[0m
+[0;32mI (227349) Controle: Right button pressed[0m
+[0;32mI (227489) Controle: Right button released[0m
+[0;32mI (227589) Controle: Right button pressed[0m
+[0;32mI (227679) Controle: Right button released[0m
+[0;32mI (227739) Controle: Right button pressed[0m
+[0;32mI (227859) Controle: Right button released[0m
+[0;32mI (227989) Controle: Right button pressed[0m
+[0;32mI (228159) Controle: Right button released[0m
+[0;32mI (228289) Controle: Right button pressed[0m
+[0;32mI (228569) Controle: Down button pressed[0m
+[0;32mI (228639) Controle: Right button released[0m
+[0;32mI (228789) Controle: Down button released[0m
+[0;32mI (228879) Controle: Down button pressed[0m
+[0;32mI (228979) Controle: Down button released[0m
+[0;32mI (229069) Controle: Right button pressed[0m
+[0;32mI (229189) Controle: Right button released[0m
+[0;32mI (229259) Controle: Right button pressed[0m
+[0;32mI (229379) Controle: Right button released[0m
+[0;32mI (229719) Controle: Right button pressed[0m
+[0;32mI (229819) Controle: Right button released[0m
+[0;32mI (229869) Controle: Right button pressed[0m
+[0;32mI (229999) Controle: Right button released[0m
+[0;32mI (231029) Controle: Right button pressed[0m
+[0;32mI (231239) Controle: Right button released[0m
+[0;32mI (231859) Controle: Right button pressed[0m
+[0;32mI (232039) Controle: Right button released[0m
+[0;32mI (232139) Controle: Right button pressed[0m
+[0;32mI (232259) Controle: Right button released[0m
+[0;32mI (232349) Controle: Right button pressed[0m
+[0;32mI (232459) Controle: Right button released[0m
+[0;32mI (232519) Controle: Right button pressed[0m
+[0;32mI (232639) Controle: Right button released[0m
+[0;32mI (232679) Controle: Right button pressed[0m
+[0;32mI (232839) Controle: Down button pressed[0m
+[0;32mI (232869) Controle: Right button released[0m
+[0;32mI (233129) Controle: Down button released[0m
+[0;32mI (233289) Controle: Left button pressed[0m
+[0;32mI (233289) Controle: Down button pressed[0m
+[0;32mI (233349) Controle: Down button released[0m
+[0;32mI (233499) Controle: Right button pressed[0m
+[0;32mI (233529) Controle: Up button pressed[0m
+[0;32mI (233579) Controle: Right button released[0m
+[0;32mI (233599) Controle: Left button released[0m
+[0;32mI (233779) Controle: Right button pressed[0m
+[0;32mI (233839) Controle: Up button released[0m
+[0;32mI (233929) Controle: Left button pressed[0m
+[0;32mI (234119) Controle: Left button released[0m
+[0;32mI (234239) Controle: Left button pressed[0m
+[0;32mI (234299) Controle: Right button released[0m
+[0;32mI (234369) Controle: Right button pressed[0m
+[0;32mI (234409) Controle: Left button released[0m
+[0;32mI (234489) Controle: Right button released[0m
+[0;32mI (234529) Controle: Right button pressed[0m
+[0;32mI (234629) Controle: Right button released[0m
+[0;32mI (234679) Controle: Right button pressed[0m
+[0;32mI (234809) Controle: Right button released[0m
+[0;32mI (234869) Controle: Right button pressed[0m
+[0;32mI (234959) Controle: Right button released[0m
+[0;32mI (234999) Controle: Right button pressed[0m
+[0;32mI (235109) Controle: Right button released[0m
+[0;32mI (235159) Controle: Right button pressed[0m
+[0;32mI (235269) Controle: Right button released[0m
+[0;32mI (235329) Controle: Right button pressed[0m
+[0;32mI (235459) Controle: Right button released[0m
+[0;32mI (235509) Controle: Right button pressed[0m
+[0;32mI (235649) Controle: Right button released[0m
+[0;32mI (235699) Controle: Right button pressed[0m
+[0;32mI (235819) Controle: Right button released[0m
+[0;32mI (235869) Controle: Right button pressed[0m
+[0;32mI (236129) Controle: Up button pressed[0m
+[0;32mI (236229) Controle: Right button released[0m
+[0;32mI (236289) Controle: Left button pressed[0m
+[0;32mI (236379) Controle: Right button pressed[0m
+[0;32mI (236419) Controle: Up button released[0m
+[0;32mI (236479) Controle: Left button released[0m
+[0;32mI (236569) Controle: Down button pressed[0m
+[0;32mI (236679) Controle: Right button released[0m
+[0;32mI (236849) Controle: Right button pressed[0m
+[0;32mI (236849) Controle: Left button pressed[0m
+[0;32mI (236869) Controle: Down button released[0m
+[0;32mI (236949) Controle: Left button released[0m
+[0;32mI (237219) Controle: Right button released[0m
+[0;32mI (237279) Controle: Right button pressed[0m
+[0;32mI (237439) Controle: Up button pressed[0m
+[0;32mI (237499) Controle: Right button released[0m
+[0;32mI (237509) Controle: Left button pressed[0m
+[0;32mI (237609) Controle: Up button released[0m
+[0;32mI (237749) Controle: Right button pressed[0m
+[0;32mI (237979) Controle: Up button pressed[0m
+[0;32mI (238039) Controle: Right button released[0m
+[0;32mI (238039) Controle: Left button released[0m
+[0;32mI (238309) Controle: Left button pressed[0m
+[0;32mI (238329) Controle: Up button released[0m
+[0;32mI (238449) Controle: Down button pressed[0m
+[0;32mI (238519) Controle: Left button released[0m
+[0;32mI (238699) Controle: Left button pressed[0m
+[0;32mI (238739) Controle: Down button released[0m
+[0;32mI (238839) Controle: Up button pressed[0m
+[0;32mI (238929) Controle: Right button pressed[0m
+[0;32mI (238939) Controle: Left button released[0m
+[0;32mI (239009) Controle: Up button released[0m
+[0;32mI (239289) Controle: Right button released[0m
+[0;32mI (239319) Controle: Right button pressed[0m
+[0;32mI (239649) Controle: Right button released[0m
+[0;32mI (239679) Controle: Right button pressed[0m
+[0;32mI (240199) Controle: Right button pressed[0m
+[0;32mI (240259) Controle: Right button pressed[0m
+[0;32mI (240319) Controle: Right button pressed[0m
+[0;32mI (240379) Controle: Right button pressed[0m
+[0;32mI (240449) Controle: Right button pressed[0m
+[0;32mI (240499) Controle: Right button pressed[0m
+[0;32mI (240569) Controle: Right button pressed[0m
+[0;32mI (240629) Controle: Right button pressed[0m
+[0;32mI (240689) Controle: Right button pressed[0m
+[0;32mI (240759) Controle: Right button pressed[0m
+[0;32mI (240809) Controle: Right button pressed[0m
+[0;32mI (240879) Controle: Right button pressed[0m
+[0;32mI (240939) Controle: Right button pressed[0m
+[0;32mI (240999) Controle: Right button pressed[0m
+[0;32mI (241059) Controle: Right button pressed[0m
+[0;32mI (241119) Controle: Right button pressed[0m
+[0;32mI (241189) Controle: Right button pressed[0m
+[0;32mI (241249) Controle: Right button pressed[0m
+[0;32mI (241309) Controle: Right button pressed[0m
+[0;32mI (241369) Controle: Right button pressed[0m
+[0;32mI (241419) Controle: Right button pressed[0m
+[0;32mI (241479) Controle: Right button pressed[0m
+[0;32mI (241539) Controle: Right button pressed[0m
+[0;32mI (241599) Controle: Right button pressed[0m
+[0;32mI (241669) Controle: Right button pressed[0m
+[0;32mI (241729) Controle: Right button pressed[0m
+[0;32mI (241789) Controle: Right button pressed[0m
+[0;32mI (241849) Controle: Right button pressed[0m
+[0;32mI (241919) Controle: Right button pressed[0m
+[0;32mI (241979) Controle: Right button pressed[0m
+[0;32mI (242039) Controle: Right button pressed[0m
+[0;32mI (242129) Controle: Right button pressed[0m
+[0;32mI (242219) Controle: Right button pressed[0m
+[0;32mI (242289) Controle: Right button pressed[0m
+[0;32mI (242349) Controle: Right button pressed[0m
+[0;32mI (242409) Controle: Right button pressed[0m
+[0;32mI (242469) Controle: Right button pressed[0m
+[0;32mI (242539) Controle: Right button pressed[0m
+[0;32mI (242609) Controle: Right button pressed[0m
+[0;32mI (242669) Controle: Right button pressed[0m
+[0;32mI (242769) Controle: Right button pressed[0m
+[0;32mI (242849) Controle: Right button pressed[0m
+[0;32mI (242899) Controle: Right button pressed[0m
+[0;32mI (242969) Controle: Right button pressed[0m
+[0;32mI (243029) Controle: Right button pressed[0m
+[0;32mI (243089) Controle: Right button pressed[0m
+[0;32mI (243149) Controle: Right button pressed[0m
+[0;32mI (243199) Controle: Right button pressed[0m
+[0;32mI (243259) Controle: Right button pressed[0m
+[0;32mI (243329) Controle: Right button pressed[0m
+[0;32mI (243399) Controle: Right button pressed[0m
+[0;32mI (243459) Controle: Right button pressed[0m
+[0;32mI (243529) Controle: Right button pressed[0m
+[0;32mI (243589) Controle: Right button pressed[0m
+[0;32mI (243649) Controle: Right button pressed[0m
+[0;32mI (243739) Controle: Right button pressed[0m
+[0;32mI (243799) Controle: Right button pressed[0m
+[0;32mI (243869) Controle: Right button pressed[0m
+[0;32mI (243929) Controle: Right button pressed[0m
+[0;32mI (243989) Controle: Right button pressed[0m
+[0;32mI (244059) Controle: Right button pressed[0m
+[0;32mI (244129) Controle: Right button pressed[0m
+[0;32mI (244189) Controle: Right button pressed[0m
+[0;32mI (244239) Controle: Right button pressed[0m
+[0;32mI (244329) Controle: Right button pressed[0m
+[0;32mI (244379) Controle: Right button pressed[0m
+[0;32mI (244399) Controle: Up button pressed[0m
+[0;32mI (244439) Controle: Right button pressed[0m
+[0;32mI (244499) Controle: Right button pressed[0m
+[0;32mI (244549) Controle: Right button pressed[0m
+[0;32mI (244609) Controle: Right button pressed[0m
+[0;32mI (244629) Controle: Left button pressed[0m
+[0;32mI (244669) Controle: Right button pressed[0m
+[0;32mI (244739) Controle: Right button pressed[0m
+[0;32mI (244759) Controle: Up button released[0m
+[0;32mI (244799) Controle: Right button pressed[0m
+[0;32mI (244859) Controle: Right button pressed[0m
+[0;32mI (244889) Controle: Down button pressed[0m
+[0;32mI (244919) Controle: Right button pressed[0m
+[0;32mI (245049) Controle: Right button pressed[0m
+[0;32mI (245059) Controle: Left button released[0m
+[0;32mI (245109) Controle: Right button pressed[0m
+[0;32mI (245109) Controle: Left button pressed[0m
+[0;32mI (245129) Controle: Down button released[0m
+[0;32mI (245169) Controle: Right button pressed[0m
+[0;32mI (245229) Controle: Right button pressed[0m
+[0;32mI (245259) Controle: Up button pressed[0m
+[0;32mI (245289) Controle: Right button pressed[0m
+[0;32mI (245349) Controle: Right button pressed[0m
+[0;32mI (245399) Controle: Right button pressed[0m
+[0;32mI (245469) Controle: Right button pressed[0m
+[0;32mI (245479) Controle: Right button released[0m
+[0;32mI (245529) Controle: Right button pressed[0m
+[0;32mI (245579) Controle: Down button pressed[0m
+[0;32mI (245589) Controle: Right button pressed[0m
+[0;32mI (245649) Controle: Right button pressed[0m
+[0;32mI (245709) Controle: Right button pressed[0m
+[0;32mI (245769) Controle: Right button pressed[0m
+[0;32mI (245819) Controle: Down button released[0m
+[0;32mI (245839) Controle: Right button pressed[0m
+[0;32mI (245899) Controle: Right button pressed[0m
+[0;32mI (245959) Controle: Right button pressed[0m
+[0;32mI (246019) Controle: Up button released[0m
+[0;32mI (246019) Controle: Right button pressed[0m
+[0;32mI (246069) Controle: Left button released[0m
+[0;32mI (246089) Controle: Right button pressed[0m
+[0;32mI (246119) Controle: Up button pressed[0m
+[0;32mI (246159) Controle: Right button pressed[0m
+[0;32mI (246169) Controle: Right button released[0m
+[0;32mI (246229) Controle: Right button pressed[0m
+[0;32mI (246289) Controle: Up button released[0m
+[0;32mI (246309) Controle: Right button pressed[0m
+[0;32mI (246349) Controle: Left button pressed[0m
+[0;32mI (246369) Controle: Right button pressed[0m
+[0;32mI (246399) Controle: Right button released[0m
+[0;32mI (246429) Controle: Right button pressed[0m
+[0;32mI (246439) Controle: Up button pressed[0m
+[0;32mI (246479) Controle: Left button released[0m
+[0;32mI (246489) Controle: Right button pressed[0m
+[0;32mI (246529) Controle: Up button released[0m
+[0;32mI (246559) Controle: Right button pressed[0m
+[0;32mI (246589) Controle: Up button pressed[0m
+[0;32mI (246599) Controle: Right button released[0m
+[0;32mI (246619) Controle: Right button pressed[0m
+[0;32mI (246679) Controle: Right button pressed[0m
+[0;32mI (246709) Controle: Up button released[0m
+[0;32mI (246739) Controle: Right button pressed[0m
+[0;32mI (246769) Controle: Left button pressed[0m
+[0;32mI (246799) Controle: Right button released[0m
+[0;32mI (246799) Controle: Right button pressed[0m
+[0;32mI (246859) Controle: Right button pressed[0m
+[0;32mI (246909) Controle: Left button released[0m
+[0;32mI (246919) Controle: Right button pressed[0m
+[0;32mI (246969) Controle: Right button pressed[0m
+[0;32mI (246979) Controle: Right button released[0m
+[0;32mI (246999) Controle: Left button pressed[0m
+[0;32mI (247009) Controle: Up button pressed[0m
+[0;32mI (247039) Controle: Right button pressed[0m
+[0;32mI (247059) Controle: Left button released[0m
+[0;32mI (247099) Controle: Right button pressed[0m
+[0;32mI (247109) Controle: Up button released[0m
+[0;32mI (247159) Controle: Right button pressed[0m
+[0;32mI (247179) Controle: Right button released[0m
+[0;32mI (247189) Controle: Up button pressed[0m
+[0;32mI (247209) Controle: Down button pressed[0m
+[0;32mI (247219) Controle: Right button pressed[0m
+[0;32mI (247289) Controle: Right button pressed[0m
+[0;32mI (247289) Controle: Up button released[0m
+[0;32mI (247299) Controle: Down button released[0m
+[0;32mI (247349) Controle: Right button pressed[0m
+[0;32mI (247389) Controle: Right button released[0m
+[0;32mI (247399) Controle: Up button pressed[0m
+[0;32mI (247409) Controle: Right button pressed[0m
+[0;32mI (247419) Controle: Down button pressed[0m
+[0;32mI (247469) Controle: Right button pressed[0m
+[0;32mI (247519) Controle: Down button released[0m
+[0;32mI (247529) Controle: Up button released[0m
+[0;32mI (247529) Controle: Right button pressed[0m
+[0;32mI (247599) Controle: Right button pressed[0m
+[0;32mI (247659) Controle: Right button pressed[0m
+[0;32mI (247719) Controle: Right button pressed[0m
+[0;32mI (247779) Controle: Right button pressed[0m
+[0;32mI (247789) Controle: Right button released[0m
+[0;32mI (247799) Controle: Left button pressed[0m
+[0;32mI (247839) Controle: Right button pressed[0m
+[0;32mI (247989) Controle: Down button pressed[0m
+[0;32mI (248079) Controle: Left button released[0m
+[0;32mI (248109) Controle: Right button pressed[0m
+[0;32mI (248179) Controle: Down button released[0m
+[0;32mI (248249) Controle: Left button pressed[0m
+[0;32mI (248269) Controle: Up button pressed[0m
+[0;32mI (248329) Controle: Right button released[0m
+[0;32mI (248429) Controle: Right button pressed[0m
+[0;32mI (248449) Controle: Up button released[0m
+[0;32mI (248589) Controle: Right button released[0m
+[0;32mI (248619) Controle: Down button pressed[0m
+[0;32mI (248689) Controle: Left button released[0m
+[0;32mI (248899) Controle: Down button released[0m
+[0;32mI (252639) Controle: Weapon button pressed[0m
+[0;32mI (253269) Controle: Reverse button pressed[0m

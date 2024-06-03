@@ -1,0 +1,22 @@
+[1/10] cd /home/arthur/esp32/esp-idf/projects/controle-robo-esp32/build && /home/arthur/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/arthur/esp32/esp-idf/components/spiffs/spiffsgen.py 0x80000 /home/arthur/esp32/esp-idf/projects/controle-robo-esp32/spiffs_image /home/arthur/esp32/esp-idf/projects/controle-robo-esp32/build/storage.bin --page-size=256 --obj-name-len=32 --meta-len=4 --use-magic --use-magic-len
+[2/10] Performing build step for 'bootloader'
+[1/1] cd /home/arthur/esp32/esp-idf/projects/controle-robo-esp32/build/bootloader/esp-idf/esptool_py && /home/arthur/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/arthur/esp32/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/arthur/esp32/esp-idf/projects/controle-robo-esp32/build/bootloader/bootloader.bin
+Bootloader binary size 0x6880 bytes. 0x780 bytes (7%) free.
+[3/10] No install step for 'bootloader'
+[4/10] Completed 'bootloader'
+[5/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/controle-robo-esp32.c.obj
+/home/arthur/esp32/esp-idf/projects/controle-robo-esp32/main/controle-robo-esp32.c: In function 'button_handler':
+/home/arthur/esp32/esp-idf/projects/controle-robo-esp32/main/controle-robo-esp32.c:148:24: warning: initialization discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  148 |         char* button = req->uri + 7;
+      |                        ^~~
+[6/10] Linking C static library esp-idf/main/libmain.a
+[7/10] Generating ld/sections.ld
+[8/10] Linking CXX executable controle_robo_esp32.elf
+[9/10] Generating binary image from built executable
+esptool.py v4.8.dev3
+Creating esp32 image...
+Merged 3 ELF sections
+Successfully created esp32 image.
+Generated /home/arthur/esp32/esp-idf/projects/controle-robo-esp32/build/controle_robo_esp32.bin
+[10/10] cd /home/arthur/esp32/esp-idf/projects/controle-robo-esp32/build/esp-idf/esptool_py && /home/arthur/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/arthur/esp32/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/arthur/esp32/esp-idf/projects/controle-robo-esp32/build/partition_table/partition-table.bin /home/arthur/esp32/esp-idf/projects/controle-robo-esp32/build/controle_robo_esp32.bin
+controle_robo_esp32.bin binary size 0xd1a30 bytes. Smallest app partition is 0x100000 bytes. 0x2e5d0 bytes (18%) free.

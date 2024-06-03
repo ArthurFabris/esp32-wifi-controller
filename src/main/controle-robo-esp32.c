@@ -9,7 +9,6 @@
 #include "nvs_flash.h"
 #include "driver/gpio.h"
 
-
 /*---------------------------------------------------------------------------*/
 // Defina o nome da sua network:(SSID)
 #define WIFI_SSID "Controle"
@@ -24,6 +23,9 @@
 #define DOWN_PIN      GPIO_NUM_5  // Pino de movimento do robo para baixo
 #define LEFT_PIN      GPIO_NUM_18 // Pino de movimento do robo para a esquerda
 #define RIGHT_PIN     GPIO_NUM_19 // Pino de movimento do robo para a direita
+#define WEAPON_PIN    GPIO_NUM_21 // Pino para arma do robo
+#define INVERSE_PIN   GPIO_NUM_2  // Pino para inversão de direção do robo
+
 /*-----------------------------------------------------------*/
 #define ON_PIN        GPIO_NUM_23 // Verifica se o servidor HTTPS esta rodando (opcional)
 #define CONNECTED_PIN GPIO_NUM_22 // quando um controle esta conectado no robo (opcional)
@@ -32,7 +34,8 @@
 static const char *TAG = "Controle";
 /*---------------------------------------------------------------------------*/
 
-
+static bool reverse_direction = false; // Flag para reversão de direção
+static bool toggle_weapon = false;     // Flag para arma
 void init_gpio() {
     gpio_config_t io_conf;
 
@@ -55,6 +58,16 @@ void init_gpio() {
     // Configure RIGHT_PIN
     io_conf.pin_bit_mask = (1ULL << RIGHT_PIN);
     gpio_config(&io_conf);
+
+    // Configure WEAPON_PIN
+    io_conf.pin_bit_mask = (1ULL << WEAPON_PIN);
+    gpio_config(&io_conf);
+    gpio_set_level(WEAPON_PIN, 0); // Initially OFF
+
+    // Configure INVERSE_PIN
+    io_conf.pin_bit_mask = (1ULL << INVERSE_PIN);
+    gpio_config(&io_conf);
+    gpio_set_level(INVERSE_PIN, 0); // Initially OFF
 
     // Configure ON_PIN
     io_conf.pin_bit_mask = (1ULL << ON_PIN);
@@ -137,45 +150,75 @@ static esp_err_t button_handler(httpd_req_t *req)
         if (strcmp(button, "up?state=pressed") == 0 && strcmp(state, "pressed") == 0)
         {
             ESP_LOGI(TAG, "Up button pressed");
-            gpio_set_level(UP_PIN, 1); // Turn on UP_PIN
+            gpio_set_level(UP_PIN, !reverse_direction); // Turn on UP_PIN if not reversed
+            gpio_set_level(DOWN_PIN, reverse_direction); // Turn on DOWN_PIN if reversed
         }
         if (strcmp(button, "up?state=released") == 0 && strcmp(state, "released") == 0)
         {
             ESP_LOGI(TAG, "Up button released");
             gpio_set_level(UP_PIN, 0); // Turn off UP_PIN
+            gpio_set_level(DOWN_PIN, 0); // Turn off DOWN_PIN
         }
         //-------------------------------------------------------------
         if (strcmp(button, "down?state=pressed") == 0 && strcmp(state, "pressed") == 0)
         {
             ESP_LOGI(TAG, "Down button pressed");
-            gpio_set_level(DOWN_PIN, 1); // Turn on DOWN_PIN
+            gpio_set_level(DOWN_PIN, !reverse_direction); // Turn on DOWN_PIN if not reversed
+            gpio_set_level(UP_PIN, reverse_direction); // Turn on UP_PIN if reversed
         }
         if (strcmp(button, "down?state=released") == 0 && strcmp(state, "released") == 0)
         {
             ESP_LOGI(TAG, "Down button released");
             gpio_set_level(DOWN_PIN, 0); // Turn off DOWN_PIN
+            gpio_set_level(UP_PIN, 0); // Turn off UP_PIN
         }
         //-------------------------------------------------------------
         if (strcmp(button, "left?state=pressed") == 0 && strcmp(state, "pressed") == 0)
         {
             ESP_LOGI(TAG, "Left button pressed");
-            gpio_set_level(LEFT_PIN, 1); // Turn on LEFT_PIN
+            gpio_set_level(LEFT_PIN, !reverse_direction); // Turn on LEFT_PIN if not reversed
+            gpio_set_level(RIGHT_PIN, reverse_direction); // Turn on RIGHT_PIN if reversed
         }
         if (strcmp(button, "left?state=released") == 0 && strcmp(state, "released") == 0)
         {
             ESP_LOGI(TAG, "Left button released");
             gpio_set_level(LEFT_PIN, 0); // Turn off LEFT_PIN
+            gpio_set_level(RIGHT_PIN, 0); // Turn off RIGHT_PIN
         }
         //-------------------------------------------------------------
         if (strcmp(button, "right?state=pressed") == 0 && strcmp(state, "pressed") == 0)
         {
             ESP_LOGI(TAG, "Right button pressed");
-            gpio_set_level(RIGHT_PIN, 1); // Turn on RIGHT_PIN
+            gpio_set_level(RIGHT_PIN, !reverse_direction); // Turn on RIGHT_PIN if not reversed
+            gpio_set_level(LEFT_PIN, reverse_direction); // Turn on LEFT_PIN if reversed
         }
         if (strcmp(button, "right?state=released") == 0 && strcmp(state, "released") == 0)
         {
             ESP_LOGI(TAG, "Right button released");
             gpio_set_level(RIGHT_PIN, 0); // Turn off RIGHT_PIN
+            gpio_set_level(LEFT_PIN, 0); // Turn off LEFT_PIN
+        }
+        //-------------------------------------------------------------
+        //-------------------------------------------------------------
+        if (strcmp(button, "weapon?state=pressed") == 0)
+        {
+            ESP_LOGI(TAG, "Weapon button pressed");
+            toggle_weapon = !toggle_weapon; // Toggle weapon
+            gpio_set_level(WEAPON_PIN , toggle_weapon); // Light up WEAPON_PIN
+            if (toggle_weapon == 0) {
+                gpio_set_level(WEAPON_PIN , 0); // If already pressed, set GPIO to low
+            }
+        }
+
+        //-------------------------------------------------------------
+        if (strcmp(button, "reverse?state=pressed") == 0)
+        {
+            ESP_LOGI(TAG, "Reverse button pressed");
+            reverse_direction = !reverse_direction; // Toggle reverse direction
+            gpio_set_level(INVERSE_PIN, reverse_direction); // Light up INVERSE_PIN
+            if (reverse_direction == 0) {
+                gpio_set_level(INVERSE_PIN, 0); // If already pressed, set GPIO to low
+            }
         }
         //-------------------------------------------------------------
     }
@@ -218,10 +261,10 @@ static void start_http_server(void)
         httpd_register_uri_handler(server, &root);
 
         // Register button URI handlers
-        const char *directions[] = {"up", "down", "left", "right"};
-        for (int i = 0; i < 4; i++) {
+        const char *buttons[] = {"up", "down", "left", "right", "weapon", "reverse"};
+        for (int i = 0; i < 6; i++) {
             char uri[20];
-            sprintf(uri, "/button%s", directions[i]);
+            sprintf(uri, "/button%s", buttons[i]);
             httpd_uri_t button = {
                 .uri       = uri,
                 .method    = HTTP_GET,
